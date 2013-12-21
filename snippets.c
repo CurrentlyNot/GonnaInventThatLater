@@ -1,19 +1,23 @@
 Returning multiple values:
 
-	1: Return a struct which contains all the types you need:
+	1: By struct (reference):
 
-		struct Tuple {
-			int a;
-			string b;
+		struct someStruct
+		{
+			unsigned int total;
 		};
 
-		struct Tuple getPair() {
-			Tuple r = { 1, getString() };
-			return r;
+		int test(struct someStruct* state)
+		{
+			state->total = 4;
 		}
 
-		void foo() {
-			struct Tuple t = getPair();
+		int main ()
+		{
+			struct someStruct s;
+			s.total = 5;
+			test(&s);
+			printf("\ns.total = %d\n", s.total);
 		}
 
 	2: Use pointers to pass out values:
