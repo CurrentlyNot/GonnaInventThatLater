@@ -151,3 +151,33 @@ Working with files:
 
 		fgets (array_which_will_store_data, sizeof(array), pointer_to_your_file)
 		//Each time you call this command, it will copy consecutive line
+
+Ncurses:
+	
+	1: On Windows (using MinGW compilator)
+		
+		Download:
+			pdc34dllw.zip: http://sourceforge.net/projects/pdcurses/files/
+			
+		Installation:
+			pdcurses.lib to MinGW’s “/lib” folder
+			cursors.h and panels.h to MingW’s “/include” folder
+			pdcures.dll to MinGW’s “/bin” folder
+			
+	2: Usage:
+			
+		/*Include this library*/
+		#include <curses.h>
+		/*Initialize the main screen(put it on the beginning of main)*/
+		initscr();
+		/*Clear the window*/
+		wclear(stdscr);
+		/*Print things into a buffer. It won't be shown in terminal
+		 until screen is refreshed*/
+		printw("blabla");
+		/*Refresh the screen*/
+		wrefresh(stdscr);
+		/*Close the window, end the function*/
+		endwin();
+		/*Compile in gcc with this suffix included*/
+		gcc -o code code.c -lpdcurses
