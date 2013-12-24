@@ -177,6 +177,8 @@ Ncurses:
 		printw("blabla");
 		/*Refresh the screen*/
 		wrefresh(stdscr);
+		/*Move the output cursor to the specific place in the window*/
+		move(row,column);
 		/*Close the window, end the function*/
 		endwin();
 		/*Compile in gcc with this suffix included*/
